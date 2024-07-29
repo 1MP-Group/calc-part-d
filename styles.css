@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Charter&family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5; /* GRAY */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #efefef; /* WHITE */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.explanation {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.explanation ul.main-p {
+    list-style-type: disc; /* Adds bullet points */
+    padding-left: 20px; /* Indent list items */
+    font-size: 1.1em;
+    color: #3a3a3a; /* METAL */
+    line-height: 1.5em;
+    margin: 0; /* Remove default margin */
+}
+
+.calculator {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Montserrat', serif;
+    color: #3c5f97; /* DARK SLATE BLUE */
+    text-align: center;
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 2em; /* Default font size */
+    word-wrap: break-word; /* Ensure long words break */
+}
+
+/* Adjust font size and margin for responsiveness */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2em; /* Reduced font size for tablets */
+        margin-bottom: 20px; /* Adjust bottom margin */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em; /* Further reduced font size for smaller screens */
+        margin-bottom: 15px; /* Adjust bottom margin */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Further reduced font size for very small screens */
+        margin-bottom: 10px; /* Adjust bottom margin */
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .content {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .explanation {
+        padding-right: 0;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+
+    p {
+        font-size: 1.1em; /* Adjust font size for small screens */
+    }
+}
+
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.3em; /* Adjust font size further for very small screens */
+        margin-bottom: 8px; /* Adjust bottom margin */
+    }
+
+    .container {
+        padding: 8px; /* Reduce padding */
+    }
+
+    .explanation ul.main-p {
+        font-size: 1em; /* Slightly smaller font size for the list */
+    }
+
+    p {
+        font-size: 1em; /* Adjust font size for the total penalty amount */
+    }
+}
+
+@media (max-width: 320px) {
+    h1 {
+        font-size: 1.2em; /* Further reduce font size */
+        margin-bottom: 5px; /* Adjust bottom margin */
+    }
+
+    .container {
+        padding: 5px; /* Further reduce padding */
+    }
+
+    .explanation ul.main-p {
+        font-size: 0.9em; /* Smaller font size for the list */
+    }
+
+    p {
+        font-size: 0.9em; /* Adjust font size for the total penalty amount */
+    }
+
+    .button-group {
+        gap: 4px; /* Reduce gap between buttons */
+    }
+
+    button {
+        padding: 6px 12px; /* Reduce button padding */
+    }
+}
+
+.part, .months, .number {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 15px;
+}
+
+.label-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-with-note {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-note input {
+    flex: 1;
+}
+
+.note {
+    margin-left: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #213058; /* MIDNIGHT BLUE */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+button.calculate {
+    background-color: #3c5f97; /* DARK SLATE BLUE */
+    color: #efefef; /* WHITE */
+}
+
+button.calculate:hover {
+    background-color: #213058; /* MIDNIGHT BLUE */
+}
+
+button.clear {
+    background-color: #f04b4c; /* RED */
+    color: #efefef; /* WHITE */
+}
+
+button.clear:hover {
+    background-color: #d43c3d; /* Slightly darker red */
+}
+
+p {
+    font-size: 1.2em;
+    color: #3a3a3a; /* METAL */
+    margin-top: 10px;
+    text-align: center;
+    opacity: 1; 
+    transform: scale(0.9); /* Start with a smaller scale */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.main-p {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #3a3a3a; /* METAL */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    opacity: 1; 
+    transform: scale(0.9); /* Start with a smaller scale */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+#partD-result {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #d43c3d; 
+    margin-top: 10px;
+    text-align: center;
+    opacity: 0; /* Start with hidden */
+    transform: scale(0.9); /* Start with a smaller scale */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+#partD-result.visible {
+    opacity: 1; /* Show with animation */
+    transform: scale(1); /* Scale up to normal size */
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+    
+    .explanation {
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 0;
+    }
+
+    .explanation {
+        padding-right: 0;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .content {
+        padding: 0;
+    }
+
+    .explanation ul.main-p {
+        font-size: 1em; /* Slightly smaller font size for the list */
+    }
+
+    p {
+        font-size: 1em; /* Adjust font size for the total penalty amount */
+    }
+}
+
+@media (max-width: 320px) {
+    .content {
+        padding: 0;
+    }
+
+    .explanation ul.main-p {
+        font-size: 0.9em; /* Smaller font size for the list */
+    }
+
+    p {
+        font-size: 0.9em; /* Adjust font size for the total penalty amount */
+    }
+
+    .button-group {
+        gap: 4px; /* Reduce gap between buttons */
+    }
+
+    button {
+        padding: 6px 12px; /* Reduce button padding */
+    }
+}
