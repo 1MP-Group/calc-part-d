@@ -1,5 +1,5 @@
 function calculatePartD() {
-    const basePremium = 38.99; // 2026 value
+    const basePremium = 36.78; // 2025 value
     const uncoveredMonths = parseInt(document.getElementById('partD-months').value);
 
     if (isNaN(uncoveredMonths)) {
